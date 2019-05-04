@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=h:\Documents\Visual Studio 2017\Projects\People-counting-API\People-counting-API\env"
+set "VIRTUAL_ENV=H:\Documents\Visual Studio 2017\Projects\People-counting-API\People-counting-API\env"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"

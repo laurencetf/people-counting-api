@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="h:\Documents\Visual Studio 2017\Projects\People-counting-API\People-counting-API\env"
+$env:VIRTUAL_ENV="H:\Documents\Visual Studio 2017\Projects\People-counting-API\People-counting-API\env"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
