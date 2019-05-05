@@ -15,5 +15,7 @@ urlpatterns = [
     url(r'^verify-authentication/', include('VerifyAuthentication.urls'), name='verifyAuthentication'),
     url(r'^project/', include('Project.urls'),name="project"),
     url(r'^clicks/', include('Clicks.urls'),name="clicks"),
+    url(r'^getproject/', include('GetProject.urls'),name="getproject"),
+    url(r'^getclicks/', include('GetClicks.urls'),name="getclicks"),
     url(r'^test/', include('Test.urls'),name="test"),
 ]

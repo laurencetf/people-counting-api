@@ -10,25 +10,8 @@ import json
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from .clickSerializer import ClickEncoder
 
 class Clicks(views.APIView):
-
-    def get(self, request, image_Id, *args, **kwargs):
-        clicks = Click.objects.filter(imageId = image_Id).order_by('userId')
-        userIds = clicks.values('userId').distinct()
-        data =[]
-        for userId in userIds:
-            user_Id =userId['userId']
-            user = User.objects.get(id = user_Id)
-            user_clicks = list(clicks.filter(userId=user_Id))
-            tmp_clicks = []
-            for click in user_clicks:
-                tmp_clicks.append({"Top": str(click.top),"Left": str(click.left)})
-            tmp = {"userId": str(user_Id), "email": user.email, "color": user.first_name,"clicks": tmp_clicks}
-            data.append(tmp)
-        return JsonResponse(data, safe = False)
-
 
     def post(self, request, *args, **kwargs):
         if not request.data:
