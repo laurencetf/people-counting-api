@@ -26,7 +26,7 @@ SECRET_KEY = '7c6c8696-dd43-469e-a4ee-9a11c6af15d4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['people-countingapi.azurewebsites.net', '127.0.0.1']
 
 
 # Application definition
@@ -48,8 +48,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.Session',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware'
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,6 +129,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 
 # Static files (CSS, JavaScript, Images)
