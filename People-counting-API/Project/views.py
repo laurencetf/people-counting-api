@@ -11,14 +11,6 @@ from django.http import JsonResponse
 
 class Project(views.APIView):
 
-    def get(self, request, *args, **kwargs):
-        projects = ProjectModel.objects.all()
-        project_list = []
-        for project in projects:
-            project_list.append({"id": project.id,"name": project.name,"imgUrl": project.imageUrl,"algorithmiaCount": project.algorithmiaCount})
-        return JsonResponse(project_list, safe = False)
-
-
     def post(self, request, *args, **kwargs):
         if not request.data:
             return Response({'Error': "No request provided"}, status="400")
