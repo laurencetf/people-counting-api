@@ -1,7 +1,0 @@
-Authenticate
-Clicks
-People_counting_API
-Project
-Register
-Test
-VerifyAuthentication

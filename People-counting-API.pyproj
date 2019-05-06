@@ -62,9 +62,6 @@
     <Compile Include="Register\urls.py" />
     <Compile Include="Register\views.py" />
     <Compile Include="Register\__init__.py" />
-    <Compile Include="setup.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Test\models.py" />
     <Compile Include="Test\urls.py" />
     <Compile Include="Test\views.py" />
