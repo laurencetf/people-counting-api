@@ -26,7 +26,7 @@ SECRET_KEY = '7c6c8696-dd43-469e-a4ee-9a11c6af15d4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*','people-counting-api.azurewebsites.net']
+ALLOWED_HOSTS=[os.environ.get('OPENSHIFT_DNS', '*')]
 
 
 # Application definition
