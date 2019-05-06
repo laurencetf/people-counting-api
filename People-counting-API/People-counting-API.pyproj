@@ -127,6 +127,7 @@
     <Content Include="Clicks\__pycache__\urls.cpython-36.pyc" />
     <Content Include="Clicks\__pycache__\views.cpython-36.pyc" />
     <Content Include="Clicks\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="Dockerfile" />
     <Content Include="Project\migrations\__pycache__\0001_initial.cpython-36.pyc" />
     <Content Include="Project\migrations\__pycache__\__init__.cpython-36.pyc" />
     <Content Include="Project\__pycache__\models.cpython-36.pyc" />
