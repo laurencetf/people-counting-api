@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 class Register(APIView):
+
     def post(self, request, *args, **kwargs):
         if not request.data:
             return Response({'Error': "Please provide username/password"}, status="400")
