@@ -55,6 +55,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.Session',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
