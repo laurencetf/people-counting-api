@@ -135,6 +135,7 @@
     <Content Include="Register\__pycache__\views.cpython-36.pyc" />
     <Content Include="Register\__pycache__\__init__.cpython-36.pyc" />
     <Content Include="db.sqlite3" />
+    <Content Include="requirements.txt" />
     <Content Include="static\admin\css\base.css" />
     <Content Include="static\admin\css\changelists.css" />
     <Content Include="static\admin\css\dashboard.css" />
