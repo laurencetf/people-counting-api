@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'People_counting_API.wsgi.application'
 DATABASES = {
             'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'rEM3HmeF3o',
-            'USER': 'rEM3HmeF3o',
-            'PASSWORD': 'RRYf3vBqFW',
-            'HOST': 'remotemysql.com', 
+            'NAME': 'agiledb',
+            'USER': 'agileuser',
+            'PASSWORD': 'agileuserpassword',
+            'HOST': 'ec2-18-184-91-255.eu-central-1.compute.amazonaws.com', 
             # Or an IP Address that your DB is hosted on
             'PORT': '3306',
         }
