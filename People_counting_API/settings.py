@@ -26,18 +26,18 @@ SECRET_KEY = '7c6c8696-dd43-469e-a4ee-9a11c6af15d4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS=[os.environ.get('OPENSHIFT_DNS', '*')]
+ALLOWED_HOSTS=['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
     'rest_framework',
     'Authenticate',
     'Register',
