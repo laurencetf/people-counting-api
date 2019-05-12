@@ -31,6 +31,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\cors.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="app\__init__.py" />
     <Compile Include="Authenticate\urls.py" />
     <Compile Include="Authenticate\views.py" />
     <Compile Include="Authenticate\__init__.py" />
@@ -71,6 +76,8 @@
     <Compile Include="VerifyAuthentication\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
     <Folder Include="Authenticate\" />
     <Folder Include="Authenticate\__pycache__\" />
     <Folder Include="Clicks\" />
@@ -134,7 +141,6 @@
     <Content Include="Register\__pycache__\urls.cpython-36.pyc" />
     <Content Include="Register\__pycache__\views.cpython-36.pyc" />
     <Content Include="Register\__pycache__\__init__.cpython-36.pyc" />
-    <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="static\admin\css\base.css" />
     <Content Include="static\admin\css\changelists.css" />

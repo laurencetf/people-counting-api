@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
     'rest_framework',
-    'corsheaders',
     'Authenticate',
     'Register',
     'Project',
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     ]
 
 MIDDLEWARE_CLASSES = [
-    'corsheaders.middleware.CorsMiddleware',
+    'app.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.Session',
     'django.middleware.common.CommonMiddleware',
