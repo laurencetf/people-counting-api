@@ -16,4 +16,4 @@ class GetProject(views.APIView):
         project_list = []
         for project in projects:
             project_list.append({"id": project.id,"name": project.name,"imgUrl": project.imageUrl,"algorithmiaCount": project.algorithmiaCount})
-        return JsonResponse(project_list, safe = False)
+        return JsonResponse(project_list, safe = False, headers= {"Access-Control-Allow-Origin": "*"})

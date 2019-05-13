@@ -16,7 +16,7 @@ class Authenticate(APIView):
 
     def post(self, request, *args, **kwargs):
         if not request.data:
-            return Response({'Error': "Please provide username/password"}, status="400")
+            return Response({'Error': "Please provide username/password"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
         email_r = request.data['email']
         password_r = request.data['password']
         user = authenticate(username=email_r, password=password_r)
@@ -26,11 +26,13 @@ class Authenticate(APIView):
             return HttpResponse(
               token,
               status=200,
-              content_type="application/json"
+              content_type="application/json",
+              headers= {"Access-Control-Allow-Origin": "*"}
             )
         else:
             return Response(
               json.dumps({'Error': "Invalid credentials"}),
               status=400,
-              content_type="application/json"
+              content_type="application/json",
+              headers= {"Access-Control-Allow-Origin": "*"}
             )

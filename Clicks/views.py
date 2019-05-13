@@ -15,14 +15,14 @@ class Clicks(views.APIView):
 
     def post(self, request, *args, **kwargs):
         if not request.data:
-            return Response({'Error': "No request provided"}, status="400")
+            return Response({'Error': "No request provided"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
         else:
             imageId = request.data['imageId']
             top = request.data['Top']
             left = request.data['Left']
             userId = request.data['userId']
             if Click.objects.filter(imageId=imageId, top=top, left=left).exists():
-                return Response({'Error': "Click already processed"}, status="400")
+                return Response({'Error': "Click already processed"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
             else:
                 db_click = Click()
                 db_click.imageId = imageId
@@ -30,4 +30,4 @@ class Clicks(views.APIView):
                 db_click.left = left
                 db_click.userId = userId
                 db_click.save() 
-                return Response({'Success': "Successfully added"}, status="200")
+                return Response({'Success': "Successfully added"}, status="200", headers= {"Access-Control-Allow-Origin": "*"})
