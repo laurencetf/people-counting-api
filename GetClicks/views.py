@@ -28,4 +28,6 @@ class GetClicks(views.APIView):
                 tmp_clicks.append({"Top": str(click.top),"Left": str(click.left)})
             tmp = {"userId": str(user_Id), "email": user.email, "color": user.first_name,"clicks": tmp_clicks}
             data.append(tmp)
-        return JsonResponse(data, safe = False, headers= {"Access-Control-Allow-Origin": "*"})
+        resp = JsonResponse(data, safe = False)
+        resp['Access-Control-Allow-Origin'] = "*"
+        return resp

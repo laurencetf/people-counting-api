@@ -23,7 +23,7 @@ class Authenticate(APIView):
         if user:
             expiry = datetime.date.today() + datetime.timedelta(days=7)
             token = jwt.encode({'id':user.id,'username': user.username, 'expiry':expiry.__str__()}, 'PCSK',  algorithm='HS256')    
-            return HttpResponse(
+            return Response(
               token,
               status=200,
               content_type="application/json",

@@ -41,9 +41,11 @@ class VerifyAuthentication(APIView):
             if not user.token['token'] == token:
                 raise exceptions.AuthenticationFailed(msg)
             else:
-                return HttpResponse({"Success":"User logged in"}, status= "200", headers= {"Access-Control-Allow-Origin": "*"})
+                resp = HttpResponse({"Success":"User logged in"}, status= "200")
         except jwt.ExpiredSignature or jwt.DecodeError or jwt.InvalidTokenError:
-            return HttpResponse({'Error': "Token is invalid"}, status="403", headers= {"Access-Control-Allow-Origin": "*"})
+            resp = HttpResponse({'Error': "Token is invalid"}, status="403", headers= {"Access-Control-Allow-Origin": "*"})
         except User.DoesNotExist:
-            return HttpResponse({'Error': "Internal server error"}, status="500", headers= {"Access-Control-Allow-Origin": "*"})
-
+            resp = HttpResponse({'Error': "Internal server error"}, status="500", headers= {"Access-Control-Allow-Origin": "*"})
+        finally:
+            resp['Access-Control-Allow-Origin'] = "*"
+            return resp
