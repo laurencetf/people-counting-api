@@ -25,4 +25,7 @@ class Register(APIView):
             user.is_superuser = False
             user.save()
             res = User.objects.get(username=email)
-            return Response({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status=200)
+            res = Response({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status=200)
+            res["Access-Control-Allow-Origin"] = "*"
+            res["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+            return res
