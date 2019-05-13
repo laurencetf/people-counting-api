@@ -10,12 +10,12 @@ class Register(APIView):
 
     def post(self, request, *args, **kwargs):
         if not request.data:
-            return Response({'Error': "Please provide username/password"}, status="400")
+            return Response({'Error': "Please provide username/password"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
         email = request.data['email']
         password = request.data['password']
         color = request.data['color']
         if User.objects.filter(username=email).exists():
-            return Response({'Error': "Already registered"}, status="400")
+            return Response({'Error': "Already registered"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
         else:
             user = User.objects.create_user(email,email, password)
             user.first_name = color
