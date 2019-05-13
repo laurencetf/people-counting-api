@@ -2,7 +2,7 @@ import django
 from django.views.generic.edit import CreateView
 from rest_framework import generics
 from rest_framework.views import APIView
-from django.http import HttpResponse
+from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.shortcuts import render
 
@@ -25,7 +25,4 @@ class Register(APIView):
             user.is_superuser = False
             user.save()
             res = User.objects.get(username=email)
-            res = HttpResponse({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status=200)
-            res["Access-Control-Allow-Origin"] = "*"
-            res["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
-            return res
+            return Response({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status=200, headers= {"Access-Control-Allow-Origin": "*"})
