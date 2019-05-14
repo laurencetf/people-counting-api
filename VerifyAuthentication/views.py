@@ -47,4 +47,8 @@ class VerifyAuthentication(APIView):
         except User.DoesNotExist:
             resp = HttpResponse({'Error': "Internal server error"}, status="500", headers= {"Access-Control-Allow-Origin": "*"})
         finally:
+            resp["Access-Control-Allow-Origin"] = "*"
+            resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+            resp["Access-Control-Max-Age"] = "1000"
+            resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
             return resp

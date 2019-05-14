@@ -35,4 +35,8 @@ class Authenticate(APIView):
               status=400,
               content_type="application/json",
             )
+        resp["Access-Control-Allow-Origin"] = "*"
+        resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp["Access-Control-Max-Age"] = "1000"
+        resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
         return resp

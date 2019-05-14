@@ -17,4 +17,8 @@ class GetProject(views.APIView):
         for project in projects:
             project_list.append({"id": project.id,"name": project.name,"imgUrl": project.imageUrl,"algorithmiaCount": project.algorithmiaCount})
         resp = JsonResponse(project_list, safe = False)
+        resp["Access-Control-Allow-Origin"] = "*"
+        resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp["Access-Control-Max-Age"] = "1000"
+        resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
         return resp

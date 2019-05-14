@@ -27,6 +27,8 @@ class Register(APIView):
             user.save()
             res = User.objects.get(username=email)
             resp = JsonResponse({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status = "200")
-        resp['Access-Control-Allow-Origin'] = "*"
-        resp['Content-Type'] = "application/json"
+        resp["Access-Control-Allow-Origin"] = "*"
+        resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp["Access-Control-Max-Age"] = "1000"
+        resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
         return resp

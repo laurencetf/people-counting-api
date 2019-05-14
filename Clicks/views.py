@@ -15,7 +15,7 @@ class Clicks(views.APIView):
 
     def post(self, request, *args, **kwargs):
         if not request.data:
-            return Response({'Error': "No request provided"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
+            resp = JsonResponse({'Error': "No request provided"}, status="400")
         else:
             imageId = request.data['imageId']
             top = request.data['Top']
@@ -30,5 +30,9 @@ class Clicks(views.APIView):
                 db_click.left = left
                 db_click.userId = userId
                 db_click.save() 
-                return JsonResponse({'Success': "Successfully added"}, status="200")
-            return resp
+        resp = JsonResponse({'Success': "Successfully added"}, status="200")
+        resp["Access-Control-Allow-Origin"] = "*"
+        resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp["Access-Control-Max-Age"] = "1000"
+        resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+        return resp

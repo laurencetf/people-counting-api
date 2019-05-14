@@ -29,4 +29,8 @@ class GetClicks(views.APIView):
             tmp = {"userId": str(user_Id), "email": user.email, "color": user.first_name,"clicks": tmp_clicks}
             data.append(tmp)
         resp = JsonResponse(data, safe = False)
+        resp["Access-Control-Allow-Origin"] = "*"
+        resp["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp["Access-Control-Max-Age"] = "1000"
+        resp["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
         return resp
