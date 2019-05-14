@@ -50,16 +50,9 @@ INSTALLED_APPS = [
     ]
 
 MIDDLEWARE_CLASSES = [
-    'django.contrib.sessions.middleware.Session',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware'
-
 ]
 
 ROOT_URLCONF = 'People_counting_API.urls'
