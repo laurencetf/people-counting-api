@@ -19,14 +19,16 @@ class Project(views.APIView):
             imageUrl = request.data['imageUrl']
             algorithmiaCount = request.data['algorithmiaCount']
             if ProjectModel.objects.filter(name=name).exists():
-                return Response({'Error': "Project named like this already created"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
+                resp = JsonResponse({'Error': "Project named like this already created"}, status="400")
             else:
                 db_project = ProjectModel()
                 db_project.name = name
                 db_project.imageUrl = imageUrl
                 db_project.algorithmiaCount = algorithmiaCount
                 db_project.save()
-                return Response({"id": db_project.id,"name":db_project.name,"imageUrl":db_project.imageUrl,"algorithmiaCount":db_project.algorithmiaCount}, status="200", headers= {"Access-Control-Allow-Origin": "*"})
+                resp = JsonResponse({"id": db_project.id,"name":db_project.name,"imageUrl":db_project.imageUrl,"algorithmiaCount":db_project.algorithmiaCount}, status = "200")
+            resp['Access-Control-Allow-Origin'] = "*"
+            return resp
 
 
 

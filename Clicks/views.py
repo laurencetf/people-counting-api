@@ -22,7 +22,7 @@ class Clicks(views.APIView):
             left = request.data['Left']
             userId = request.data['userId']
             if Click.objects.filter(imageId=imageId, top=top, left=left).exists():
-                return Response({'Error': "Click already processed"}, status="400", headers= {"Access-Control-Allow-Origin": "*"})
+                resp = JsonResponse({'Error': "Click already processed"}, status="400")
             else:
                 db_click = Click()
                 db_click.imageId = imageId
@@ -30,4 +30,6 @@ class Clicks(views.APIView):
                 db_click.left = left
                 db_click.userId = userId
                 db_click.save() 
-                return Response({'Success': "Successfully added"}, status="200", headers= {"Access-Control-Allow-Origin": "*"})
+                return JsonResponse({'Success': "Successfully added"}, status="200")
+            resp['Access-Control-Allow-Origin'] = "*"
+            return resp
