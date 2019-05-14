@@ -124,7 +124,7 @@ USE_TZ = True
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_NAME = "csrftoken"
 
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
 ## Static files (CSS, JavaScript, Images)
 ## https://docs.djangoproject.com/en/1.9/howto/static-files/
