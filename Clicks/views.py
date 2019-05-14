@@ -31,5 +31,4 @@ class Clicks(views.APIView):
                 db_click.userId = userId
                 db_click.save() 
                 return JsonResponse({'Success': "Successfully added"}, status="200")
-            resp['Access-Control-Allow-Origin'] = "*"
             return resp

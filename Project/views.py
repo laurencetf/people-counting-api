@@ -27,7 +27,6 @@ class Project(views.APIView):
                 db_project.algorithmiaCount = algorithmiaCount
                 db_project.save()
                 resp = JsonResponse({"id": db_project.id,"name":db_project.name,"imageUrl":db_project.imageUrl,"algorithmiaCount":db_project.algorithmiaCount}, status = "200")
-            resp['Access-Control-Allow-Origin'] = "*"
             return resp
 
 

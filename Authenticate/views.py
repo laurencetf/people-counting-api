@@ -35,5 +35,4 @@ class Authenticate(APIView):
               status=400,
               content_type="application/json",
             )
-        resp['Access-Control-Allow-Origin'] = "*"
         return resp

@@ -1,13 +1,5 @@
-"""
-Definition of urls for People-counting.
-"""
-
-from datetime import datetime
-import site
-from . import settings
-from django.conf.urls import url
-from django.conf.urls import include
-import django.contrib.auth.views
+from django.conf.urls import include, url
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     url(r'^register/', include('Register.urls'), name='register'),
