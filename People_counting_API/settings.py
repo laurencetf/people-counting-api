@@ -121,9 +121,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_NAME = "csrftoken"
-
 SESSION_COOKIE_SECURE = False
 
 ## Static files (CSS, JavaScript, Images)
