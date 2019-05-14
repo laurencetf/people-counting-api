@@ -12,7 +12,6 @@ class Register(APIView):
     def post(self, request, *args, **kwargs):
         if not request.data:
             resp = JsonResponse({'Error': "Please provide username/password"}, status = "400")
-            resp['Access-Control-Allow-Origin'] = "*"
         email = request.data['email']
         password = request.data['password']
         color = request.data['color']
@@ -29,4 +28,5 @@ class Register(APIView):
             res = User.objects.get(username=email)
             resp = JsonResponse({'id':str(res.id), "email":res.email,"password":res.password,"color":res.first_name}, status = "200")
         resp['Access-Control-Allow-Origin'] = "*"
+        resp['Content-Type'] = "application/json"
         return resp
